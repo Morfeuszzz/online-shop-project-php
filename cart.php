@@ -1,17 +1,11 @@
 <?php
     session_start();
     require_once("./component.php");
-    $connect = new mysqli("localhost", "root", "", "online_shop");
+    require_once("./connect.php");
+    // $connect = new mysqli("localhost", "root", "", "online_shop");
 
     if(isset($_POST['remove'])){
-        if($_GET['action'] == 'remove'){
-            foreach($_SESSION['cart'] as $key => $value){
-                if($value['product_id'] == $_GET['id']){
-                    unset($_SESSION['cart'][$key]);
-                    echo "<script>window.location = 'cart.php'</script>";
-                }
-            }
-        }
+        unset($_SESSION['cart'][$_POST['product_id']]);
     }
 ?>
 
@@ -56,13 +50,12 @@
             <?php
                 $total = 0;
                 if(isset($_SESSION['cart'])){
-                    $product_id = array_column($_SESSION['cart'], 'product_id');
                     $sql = "SELECT * FROM products";
                     $result = $connect->query($sql);
                     while ($row = $result->fetch_assoc()) {
-                        foreach($product_id as $id){
-                            if($row['id'] == $id){
-                                cartElement($row['image'], $row['name'], $row['price'], $row['id']);
+                        foreach($_SESSION['cart'] as $key => $sztuki){
+                            if($row['id'] == $key){
+                                cartElement($row['image'], $row['name'], $row['price'], $row['id'], $sztuki);
                                 $total += (int)$row['price']; 
                             }
                         }
@@ -88,6 +81,8 @@
         </div>
     </div>
 
-    <footer>&copy 2022 Copyright: Sebastian Malicki 4c</footer>
+    <?php
+        include_once 'footer.php';
+    ?>
 </body>
 </html>

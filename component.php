@@ -3,7 +3,7 @@
         $alt = substr($productimage, 0, -4);
         $element = "
                 <div class=\"card\">
-                    <form action=\"index.php\" method=\"post\">
+                    <form action=\"index.php\" method=\"POST\">
                         <div class=\"card-header\">
                             <img src=./images/$productimage alt=$alt>
                         </div>
@@ -24,10 +24,10 @@
             ";
         echo $element;
     }
-    function cartElement($productimage, $productname, $productprice, $productid){
+    function cartElement($productimage, $productname, $productprice, $productid, $sztuki){
         $alt = substr($productimage, 0, -4);
         $element = " 
-            <form action=\"cart.php?action=remove&id=$productid\" method=\"POST\">
+            <form action=\"cart.php\" method=\"POST\">
             <div class=\"image-cart\">
                 <img src=./images/$productimage alt=$alt>
             </div>
@@ -39,11 +39,12 @@
             </div>
 
             <button type=\"button\" class=\"btn-minus\">-</button>
-            <input type=\"text\" value=\"1\"> 
+            <input type=\"text\" value=$sztuki> 
             <button type=\"button\" class=\"btn-plus\">+</button>
-            
-            <!-- w js dodac opcje dodawanie -->
+            <input type=\"hidden\" name=\"product_id\" value=$productid>
+
             </form>
-        ";
+            ";
+            // <!-- w php dodac opcje dodawanie -->
         echo $element;
 }

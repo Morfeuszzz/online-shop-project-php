@@ -1,33 +1,17 @@
 <?php
-    session_start();
-    require_once("./component.php");
-    $connect = new mysqli("localhost", "root", "", "online_shop");
+    // session_start();
+    // require_once("./component.php");
+    // $connect = new mysqli("localhost", "root", "", "online_shop");
 
-    if (isset($_POST['add'])) {
-        if (isset($_SESSION['cart'])) {
-            $item_array_id = array_column($_SESSION['cart'], "product_id");
-
-            if (in_array($_POST['product_id'], $item_array_id)) {
-                echo "<script>alert('już jest w koszyku')</script>";
-                echo "<script>window.location='index.php'</script>";
-            } else {
-                $count = count($_SESSION['cart']);
-                $item_array = array(
-                    'product_id' => $_POST['product_id']
-                );
-                $_SESSION['cart'][$count] = $item_array;
-                print_r($_SESSION['cart']);
-            }
-        } else {
-            $item_array = array(
-                'product_id' => $_POST['product_id']
-            );
-            $_SESSION['cart'][0] = $item_array;
-            print_r($_SESSION['cart']);
-        }
-    }
+    // if (isset($_POST['add'])) {
+    //     if (isset($_SESSION['cart'][$_POST['product_id']])) {
+    //         $_SESSION['cart'][$_POST['product_id']]++;
+    //     }else{
+    //         $_SESSION['cart'][$_POST['product_id']]=1;
+    //     }
+    // }
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -36,30 +20,10 @@
     <link rel="stylesheet" href="style.css">
     <title>Chrono69</title>
 </head>
-<body>
-    <header>
-        <div id="logo">
-            <a href="#"><img src="chrono-logo.png" alt="shop logo"></a>
-        </div>
-        <div id="title">Chrono69</div>
-        <ul class="menu">
-            <li><a href="./login.php">Logowanie</a></li>
-            <li><a href="./register.php">Rejestracja</a></li>
-            <li>
-                <a href="cart.php">
-                    <img src="./shop-cart.png" alt="shop cart">Koszyk
-                    <?php
-                    if (isset($_SESSION['cart'])) {
-                        $count = count($_SESSION['cart']);
-                        echo "<span id='cart_count'>$count</span>";
-                    } else {
-                        echo "<span id='cart_count'>0</span>";
-                    }
-                    ?>
-                </a>
-            </li>
-        </ul>
-    </header>
+<body> -->
+    <?php
+        include_once './header.php';
+    ?>
 
     <h2>Nasze produkty</h2>
 
@@ -75,6 +39,8 @@
         ?>
     </div>
 
-    <footer>&copy 2022 Copyright: Sebastian Malicki 4c</footer>
+    <?php
+        include_once 'footer.php';
+    ?>
 </body>
 </html>

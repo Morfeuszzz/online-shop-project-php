@@ -91,7 +91,13 @@ h2{
     padding: 10px;
 }
 
-
+#admin-panel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 100px;
+}
 
 footer{
     width: 100%;

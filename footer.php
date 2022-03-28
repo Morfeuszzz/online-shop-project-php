@@ -1,0 +1,1 @@
+<footer>&copy 2022 Copyright: Sebastian Malicki 4c</footer>
