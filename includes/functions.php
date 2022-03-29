@@ -93,9 +93,9 @@
             session_start();
             $_SESSION["userid"] = $nameExists["id"];
             $_SESSION["name"] = $nameExists["nickname"];
+            $_SESSION["role"] = $nameExists["role_id"];
             header("location: ../index.php");
             exit();
         }
     }
-
 ?>

@@ -2,7 +2,6 @@
     session_start();
     require_once("./component.php");
     require_once("./connect.php");
-    // $connect = new mysqli("localhost", "root", "", "online_shop");
 
     if (isset($_POST['add'])) {
         if (isset($_SESSION['cart'][$_POST['product_id']])) {
@@ -24,18 +23,29 @@
 <body>
     <header>
             <div id="logo">
-                <a href="../online-shop-project-php/index.php"><img src="chrono-logo.png" alt="shop logo"></a>
+                <a href="./index.php"><img src="chrono-logo.png" alt="shop logo"></a>
             </div>
             <div id="title">Chrono69</div>
             <ul class="menu">
                 <?php
-                // sprawdzic czy to admin czy nie by dobrze wyswietlac zawartosc dla amina, moderatora oraz usera
-                    if (isset($_SESSION['name'])){
-                        echo '<li><a href="./admin_panel.php">Panel Admina</a></li>
-                        <li><a href="./includes/logout.php">Wyloguj</a></li>';
+                // sprawdzic czy to admin czy nie by dobrze wyswietlac zawartosc dla amina, moderatora oraz usera - zrobione
+                    if (isset($_SESSION['name']) && $_SESSION['role'] === 1){
+                        echo '
+                            <li><a href="./admin_panel.php">Panel użytkowników</a></li>
+                            <li><a href="./products_panel.php">Panel produktów</a></li>
+                            <li><a href="./includes/logout.php">Wyloguj</a></li>';
+                    }else if (isset($_SESSION['name']) && $_SESSION['role'] === 2){
+                        echo '
+                            <li><a href="./products_panel.php">Panel produktów</a></li>
+                            <li><a href="./includes/logout.php">Wyloguj</a></li>';
+                    }else if (isset($_SESSION['name']) && $_SESSION['role'] === 3){
+                        echo '
+                            <li><a href="./index.php">Strona główna</a></li>
+                            <li><a href="./includes/logout.php">Wyloguj</a></li>';
                     }else {
-                        echo '<li><a href="./login_form.php">Logowanie</a></li>
-                        <li><a href="./register_form.php">Rejestracja</a></li>';
+                        echo '
+                            <li><a href="./login_form.php">Logowanie</a></li>
+                            <li><a href="./register_form.php">Rejestracja</a></li>';
                     }
                 ?>
                 <li>

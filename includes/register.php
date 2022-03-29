@@ -3,7 +3,7 @@
         $name = $_POST['nickname'];
         $email = $_POST['email'];
         $pwd = $_POST['pwd'];
-        $role = 1;
+        $role = 3;
         
         require_once '../connect.php';
         require_once './functions.php';

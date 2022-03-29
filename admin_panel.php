@@ -15,7 +15,6 @@
   ?>
   <div id="admin-panel">
     <?php
-      // require_once "./connect.php";
       $sql = "select * from users;";
       //Generowanie Tabelki
       echo <<<TAB
