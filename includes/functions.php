@@ -94,8 +94,16 @@
             $_SESSION["userid"] = $nameExists["id"];
             $_SESSION["name"] = $nameExists["nickname"];
             $_SESSION["role"] = $nameExists["role_id"];
-            header("location: ../index.php");
-            exit();
+            if ($_SESSION["role"] === 1){
+                header("location: ../admin_panel.php");
+                exit();
+            }else if ($_SESSION["role"] === 2){
+                header("location: ../products_panel.php");
+                exit();
+            }else {
+                header("location: ../index.php");
+                exit();
+            }
         }
     }
 ?>

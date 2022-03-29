@@ -3,7 +3,7 @@
 ?>
 <div id="admin-panel">
     <?php
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT users.id AS uid, nickname, password, email, role_id, role.id, role.type AS type FROM users JOIN role ON users.role_id = role.id";
         //generowanie tabeli
         echo <<< TAB
             <table>
@@ -21,7 +21,7 @@ TAB;
         while ($row = $result->fetch_assoc()) {
             echo <<< CONTENT
                 <tr>
-                    <td>$row[id]</td>
+                    <td>$row[uid]</td>
                     <td>$row[nickname]</td>
                     <td>$row[password]</td>
                     <td>$row[email]</td>

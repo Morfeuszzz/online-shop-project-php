@@ -99,6 +99,32 @@ h2{
     padding-top: 100px;
 }
 
+#products-panel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 100px;
+}
+
+#profile-content{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 100px;
+}
+
+#profile-content p{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 footer{
     width: 100%;
     height: 40px;

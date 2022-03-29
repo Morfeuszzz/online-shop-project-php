@@ -3,7 +3,7 @@
 ?>
 <div id="products-panel">
     <?php
-        $sql = "SELECT * FROM products JOIN brands ON products.brand_id = brands.id;";
+        $sql = "SELECT products.id AS pid, name, brand_id, price, amount, image, brands.id, brands.brand AS brand FROM products JOIN brands ON products.brand_id = brands.id;";
         //Generowanie Tabelki
         echo <<< TAB
             <table>
@@ -22,7 +22,7 @@ TAB;
         while ($row = $result->fetch_assoc()) {
             echo <<< TAB
             <tr>
-                <td>$row[id]</td>
+                <td>$row[pid]</td>
                 <td>$row[name]</td>
                 <td>$row[brand]</td>
                 <td>$row[price]</td>
@@ -52,16 +52,16 @@ ADD;
             echo <<< FORM
             <h2>Modyfikacja produktu o id:$_GET[upd]</h2>
             <form method="POST" action="updateP.php?up=">
-                <input type="text" placeholder="Nickname" name="nick" required><br>
-                <input type="password" placeholder="Password" name="pass" required><br>
-                <input type="email" placeholder="Email" name="mail" required><br>
-                <input type="hidden" name="aj" value=$_GET[upd]>
-                <label for="upr">Rola:</label>
-                <select id="upr" name="sele">
-                    <option value="1">Administrator</option>
-                    <option value="2">Moderator</option>
-                    <option value="3">User</option>
+                <input type="text" placeholder="Name" name="name" required><br>
+                <label for="brand">Brand:</label>
+                <select id="brand" name="brand">
+                    <option value="1">Rolex</option>
+                    <option value="2">Omega</option>
                 </select><br>
+                <input type="number" placeholder="Price" name="price" min=1 required><br>
+                <input type="number" placeholder="Amount" name="amount" min=1 required><br>
+                <input type="text" placeholder="Image" name="img" required><br>
+                <input type="hidden" name="aj" value=$_GET[upd]>
                 <input type="submit" value="Zmodyfikuj">
             </form>
 FORM;
@@ -72,15 +72,15 @@ FORM;
             echo <<< FORM
             <h2>Dodawanie użytkownika</h2><br>
             <form method="post" action="add.php?ad=">
-                <input type="text" placeholder="Nickname" name="nick2" required><br>
-                <input type="password" placeholder="Password" name="pass2" required><br>
-                <input type="email" placeholder="Email" name="mail2" required><br>
-                <label for="upr">Rola:</label>
-                <select id="upr" name="sele2">
-                <option value="1">Administrator</option>
-                <option value="2">Moderator</option>
-                <option value="3">User</option>
+                <input type="text" placeholder="Name" name="name" required><br>
+                <label for="brand">Brand:</label>
+                <select id="brand" name="brand">
+                    <option value="1">Rolex</option>
+                    <option value="2">Omega</option>
                 </select><br>
+                <input type="number" placeholder="Price" name="price" min=1 required><br>
+                <input type="number" placeholder="Amount" name="amount" min=1 required><br>
+                <input type="text" placeholder="Image" name="img" required><br>
                 <input type="submit" value="Dodaj">
             </form>
 FORM;
