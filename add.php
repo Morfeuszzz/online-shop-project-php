@@ -1,8 +1,8 @@
 <?php
-    if (isset($_GET['ad'])) {
+    if (isset($_GET['add'])) {
         require_once "connect.php";
-        $passwd = password_hash($_POST['pass2'], PASSWORD_DEFAULT);
-        $sql = "INSERT INTO users (nickname, password, email, role_id) VALUES ('$_POST[nick2]', '$passwd', '$_POST[mail2]', '$_POST[sele2]');";
+        $passwd = password_hash($_POST['passA'], PASSWORD_DEFAULT);
+        $sql = "INSERT INTO users (nickname, password, email, role_id) VALUES ('$_POST[nickA]', '$passwd', '$_POST[emailA]', '$_POST[roleA]');";
 
         if ($connect->query($sql)) {
             header("location: ./admin_panel.php?info=Dodano nowego użytkownika");

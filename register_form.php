@@ -13,18 +13,18 @@
             <button type="submit" name="submit">Zarejestruj się</button>
         </form>
         <?php
-            if(isset($_GET["error"])){
-                if($_GET["error"] == "emptyinput"){
+            if (isset($_GET["error"])) {
+                if ($_GET["error"] == "emptyinput") {
                     echo "<p>Wypełnij wszystkie pola</p>";
-                }else if($_GET["error"] == "invalidname"){
+                }else if ($_GET["error"] == "invalidname") {
                     echo "<p>Nieprawidłowa nazwa</p>";
-                }else if($_GET["error"] == "invalidemail"){
+                }else if ($_GET["error"] == "invalidemail") {
                     echo "<p>Nieprawidłowy email</p>";
-                }else if($_GET["error"] == "nameexists"){
+                }else if ($_GET["error"] == "nameexists") {
                     echo "<p>Istnieje już taka nazwa użytkownika</p>";
-                }else if($_GET["error"] == "stmtfailed"){
+                }else if ($_GET["error"] == "stmtfailed") {
                     echo "<p>Coś poszło nie tak</p>";
-                }else if($_GET["error"] == "none"){
+                }else if ($_GET["error"] == "none") {
                     echo "<p>Zarejestrowano się!</p>";
                 }
             }

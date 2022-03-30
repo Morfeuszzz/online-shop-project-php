@@ -1,48 +1,13 @@
+<head>
+    <title>Koszyk</title>
+</head>
 <?php
-    session_start();
-    require_once("./component.php");
-    require_once("./connect.php");
-    // $connect = new mysqli("localhost", "root", "", "online_shop");
+    include_once './header.php';
 
     if(isset($_POST['remove'])){
         unset($_SESSION['cart'][$_POST['product_id']]);
     }
 ?>
-
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Shopping Cart</title>
-</head>
-<body>
-    <header>
-        <div id="logo">
-            <a href="./index.php"><img src="chrono-logo.png" alt="shop logo"></a>
-        </div>
-        <div id="title">Chrono69</div>
-        <ul class="menu">
-            <li><a href="./login.php">Logowanie</a></li>
-            <li><a href="./register.php">Rejestracja</a></li>
-            <li>
-                <a href="cart.php">
-                    <img src="./shop-cart.png" alt="shop cart">Koszyk
-                    <?php
-                    if (isset($_SESSION['cart'])) {
-                        $count = count($_SESSION['cart']);
-                        echo "<span id='cart_count'>$count</span>";
-                    } else {
-                        echo "<span id='cart_count'>0</span>";
-                    }
-                    ?>
-                </a>
-            </li>
-        </ul>
-    </header>
-
     <div id="container-fluid">
         <div class="shopping-cart">
             <h6>Mój koszyk</h6>
@@ -80,7 +45,6 @@
             ?>
         </div>
     </div>
-
     <?php
         include_once 'footer.php';
     ?>

@@ -1,3 +1,6 @@
+<head>
+    <title>Profil</title>
+</head>
 <?php
     include_once './header.php';
 ?>

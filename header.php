@@ -31,11 +31,13 @@
                 <?php
                     if (isset($_SESSION['name']) && $_SESSION['role'] === 1) {
                         echo '
+                            <li>Witaj: '.$_SESSION['name'].'</li>
                             <li><a href="./admin_panel.php">Panel użytkowników</a></li>
                             <li><a href="./products_panel.php">Panel produktów</a></li>
                             <li><a href="./includes/logout.php">Wyloguj</a></li>';
                     }else if (isset($_SESSION['name']) && $_SESSION['role'] === 2) {
                         echo '
+                            <li>Witaj: '.$_SESSION['name'].'</li>
                             <li><a href="./products_panel.php">Panel produktów</a></li>
                             <li><a href="./includes/logout.php">Wyloguj</a></li>';
                     }else if (isset($_SESSION['name']) && $_SESSION['role'] === 3) {
@@ -50,7 +52,7 @@
                                     if (isset($_SESSION['cart'])) {
                                         $count = count($_SESSION['cart']);
                                         echo "<span id='cart_count'>$count</span>";
-                                    } else {
+                                    }else {
                                         echo "<span id='cart_count'>0</span>";
                                     }  
                         echo '
@@ -67,7 +69,7 @@
                                     if (isset($_SESSION['cart'])) {
                                         $count = count($_SESSION['cart']);
                                         echo "<span id='cart_count'>$count</span>";
-                                    } else {
+                                    }else {
                                         echo "<span id='cart_count'>0</span>";
                                     }  
                         echo '

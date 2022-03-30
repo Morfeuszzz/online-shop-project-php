@@ -14,10 +14,10 @@
             </form>
         </div>
         <?php
-            if(isset($_GET["error"])){
-                if($_GET["error"] == "emptyinput"){
+            if (isset($_GET["error"])) {
+                if ($_GET["error"] == "emptyinput") {
                     echo "<p>Wypełnij wszystkie pola</p>";
-                }else if($_GET["error"] == "wronglogin"){
+                }else if ($_GET["error"] == "wronglogin") {
                     echo "<p>Nieprawidłowa nazwa</p>";
                 }
             }
