@@ -69,7 +69,7 @@ MODIFY;
         
             if (isset($_GET['add'])) {
                 echo <<< ADD
-                <h2>Dodawanie użytkownika</h2><br>
+                <h2>Dodawanie produktu</h2><br>
                 <form method="POST" action="addP.php?add=">
                     <input type="text" placeholder="Name" name="nameA" required><br>
                     <label for="brandA">Brand:</label>
