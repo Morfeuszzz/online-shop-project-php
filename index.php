@@ -5,12 +5,12 @@
 
     <div id="container">
         <?php
-        $connect = new mysqli("localhost", "root", "", "online_shop");
-        $sql = "SELECT products.id AS pid, name, brand_id, price, amount, image, brands.id, brands.brand FROM products JOIN brands ON products.brand_id = brands.id;";
-        $result = $connect->query($sql);
-        while ($row = $result->fetch_assoc()) {
-            component($row['brand'], $row['name'], $row['price'], $row['image'], $row['amount'], $row['pid']);
-        }
+            $connect = new mysqli("localhost", "root", "", "online_shop");
+            $sql = "SELECT products.id AS pid, name, brand_id, price, amount, image, brands.id, brands.brand FROM products JOIN brands ON products.brand_id = brands.id;";
+            $result = $connect->query($sql);
+            while ($row = $result->fetch_assoc()) {
+                component($row['brand'], $row['name'], $row['price'], $row['image'], $row['amount'], $row['pid']);
+            }
         ?>
     </div>
 

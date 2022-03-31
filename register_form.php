@@ -4,14 +4,8 @@
 <?php
     include_once './header.php';
 ?>
-    <div class="signup-form">
+    <div id="signup-form">
         <h2>Zarejestruj się</h2>
-        <form action="./includes/register.php" method="POST">
-            <input type="text" name="nickname" placeholder="Nazwa użytkownika" id="">
-            <input type="text" name="email" placeholder="Email" id="">
-            <input type="password" name="pwd" placeholder="Hasło" id="">
-            <button type="submit" name="submit">Zarejestruj się</button>
-        </form>
         <?php
             if (isset($_GET["error"])) {
                 if ($_GET["error"] == "emptyinput") {
@@ -29,6 +23,14 @@
                 }
             }
         ?>
+        <div id="register-form-form">
+            <form action="./includes/register.php" method="POST">
+                <input type="text" name="nickname" placeholder="Nazwa użytkownika" id=""><br>
+                <input type="email" name="email" placeholder="Email" id=""><br>
+                <input type="password" name="pwd" placeholder="Hasło" id=""><br>
+                <button type="submit" name="submit">Zarejestruj się</button>
+            </form>
+        </div>
     </div>
     <?php
         include_once 'footer.php';

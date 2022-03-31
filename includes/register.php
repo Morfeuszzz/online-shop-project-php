@@ -1,5 +1,5 @@
 <?php
-    if(isset($_POST['submit'])){
+    if(isset($_POST['submit'])) {
         $name = $_POST['nickname'];
         $email = $_POST['email'];
         $pwd = $_POST['pwd'];
@@ -8,19 +8,19 @@
         require_once '../connect.php';
         require_once './functions.php';
 
-        if(emptyInputSignup($name, $email, $pwd) !== false){
+        if(emptyInputSignup($name, $email, $pwd) !== false) {
             header("location: ../register_form.php?error=emptyinput");
             exit();
         }
-        if(invalidName($name) !==false){
+        if(invalidName($name) !==false) {
             header("location: ../register_form.php?error=invalidname");
             exit();
         }
-        if(invalidEmail($email) !==false){
+        if(invalidEmail($email) !==false) {
             header("location: ../register_form.php?error=invalidemail");
             exit();
         }
-        if(nameExists($connect, $name, $email) !==false){
+        if(nameExists($connect, $name, $email) !==false) {
             header("location: ../register_form.php?error=nameexists");
             exit();
         }

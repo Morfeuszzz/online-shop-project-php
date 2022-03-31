@@ -1,5 +1,5 @@
 <?php
-    function component($productbrand, $productname, $productprice, $productimage, $productamount, $productid){
+    function component($productbrand, $productname, $productprice, $productimage, $productamount, $productid) {
         $alt = substr($productimage, 0, -4);
         $element = "
                 <div class=\"card\">
@@ -8,7 +8,7 @@
                             <img src=./images/$productimage alt=$alt>
                         </div>
                         <div class=\"card-body\">
-                            <h5 class=\"card-title\">$productbrand</h5>
+                            <p class=\"card-title\">$productbrand</p>
 
                             <p class=\"card-text\">$productname</p>
                             
@@ -24,27 +24,36 @@
             ";
         echo $element;
     }
-    function cartElement($productimage, $productname, $productprice, $productid, $sztuki){
+    function cartElement($productimage, $productname, $productprice, $productid, $amount) {
         $alt = substr($productimage, 0, -4);
         $element = " 
-            <form action=\"cart.php\" method=\"POST\">
-            <div class=\"image-cart\">
-                <img src=./images/$productimage alt=$alt>
+            <div class=\"cart-card\">
+                <form action=\"cart.php\" method=\"POST\">
+                    <div class=\"image-cart\">
+                        <img src=./images/$productimage alt=$alt>
+                    </div>
+
+                    <div class=\"product-cart\">
+                        <p class=\"product-name\">$productname</p>
+                        <p class=\"product-price\">$$productprice</p>
+                        
+                        <button type=\"submit\" name=\"remove\">Usuń</button>
+                    </div>
+
+                    <div class=\"btn-minus\">
+                        <a href=\"btn_plus_minus.php?id=$productid&action=minus\">-</a>
+                    </div>
+
+                    <input type=\"number\" name=\"inputAmount\" min=0 value=$amount> 
+                    
+                    <div class=\"btn-plus\">
+                        <a href=\"btn_plus_minus.php?id=$productid&action=plus\">+</a>
+                    </div>
+            
+                    <input type=\"hidden\" name=\"product_id\" value=$productid>
+
+                </form>
             </div>
-
-            <div class=\"product-cart\">
-                <h5>$productname</h5>
-                <h5>$productprice</h5>
-                <button type=\"submit\" name=\"remove\">Usuń</button>
-            </div>
-
-            <button type=\"button\" class=\"btn-minus\">-</button>
-            <input type=\"text\" value=$sztuki> 
-            <button type=\"button\" class=\"btn-plus\">+</button>
-            <input type=\"hidden\" name=\"product_id\" value=$productid>
-
-            </form>
             ";
-            // <!-- w php dodac opcje dodawanie -->
         echo $element;
 }

@@ -39,9 +39,11 @@ CONTENT;
             echo "</table>";
             
             echo <<< BUTTON_ADD
-                <form action="products_panel.php?add=" method="POST">
-                    <input type="submit" value="Dodaj produkt">
-                </form>
+                <div class="btn-add">
+                    <form action="products_panel.php?add=" method="POST">
+                        <button type="submit">Dodaj produkt</button>
+                    </form>
+                </div>
 BUTTON_ADD;
 
             if (isset($_GET['info'])) {
@@ -50,38 +52,46 @@ BUTTON_ADD;
             
             if (isset($_GET['update'])) {
                 echo <<< MODIFY
-                <h2>Modyfikacja produktu o id:$_GET[update]</h2>
-                <form method="POST" action="updateP.php?update=">
-                    <input type="text" placeholder="Name" name="nameM" required><br>
-                    <label for="brandM">Brand:</label>
-                    <select id="brandM" name="brandM">
-                        <option value="1">Rolex</option>
-                        <option value="2">Omega</option>
-                    </select><br>
-                    <input type="number" placeholder="Price" name="priceM" min=1 required><br>
-                    <input type="number" placeholder="Amount" name="amountM" min=1 required><br>
-                    <input type="text" placeholder="Image" name="imgM" required><br>
-                    <input type="hidden" name="id" value=$_GET[update]>
-                    <input type="submit" value="Zmodyfikuj">
-                </form>
+                <div class="add-modify-block">
+                    <h2>Modyfikacja produktu o id:$_GET[update]</h2>
+                    <div class="add-modify-block-content">
+                        <form method="POST" action="updateP.php?update=">
+                            <input type="text" placeholder="Name" name="nameM" required><br>
+                            <label for="brandM">Brand:</label>
+                            <select id="brandM" name="brandM">
+                                <option value="1">Rolex</option>
+                                <option value="2">Omega</option>
+                            </select><br>
+                            <input type="number" placeholder="Price" name="priceM" min=1 required><br>
+                            <input type="number" placeholder="Amount" name="amountM" min=1 required><br>
+                            <input type="text" placeholder="Image" name="imgM" required><br>
+                            <input type="hidden" name="id" value=$_GET[update]>
+                            <button type="submit">Zmodyfikuj</button>
+                        </form>
+                    </div>
+                </div>
 MODIFY;
             }
         
             if (isset($_GET['add'])) {
                 echo <<< ADD
-                <h2>Dodawanie produktu</h2><br>
-                <form method="POST" action="addP.php?add=">
-                    <input type="text" placeholder="Name" name="nameA" required><br>
-                    <label for="brandA">Brand:</label>
-                    <select id="brandA" name="brandA">
-                        <option value="1">Rolex</option>
-                        <option value="2">Omega</option>
-                    </select><br>
-                    <input type="number" placeholder="Price" name="priceA" min=1 required><br>
-                    <input type="number" placeholder="Amount" name="amountA" min=1 required><br>
-                    <input type="text" placeholder="Image" name="imgA" required><br>
-                    <input type="submit" value="Dodaj">
-                </form>
+                <div class="add-modify-block">
+                    <h2>Dodawanie produktu</h2><br>
+                    <div class="add-modify-block-content">
+                        <form method="POST" action="addP.php?add=">
+                            <input type="text" placeholder="Name" name="nameA" required><br>
+                            <label for="brandA">Brand:</label>
+                            <select id="brandA" name="brandA">
+                                <option value="1">Rolex</option>
+                                <option value="2">Omega</option>
+                            </select><br>
+                            <input type="number" placeholder="Price" name="priceA" min=1 required><br>
+                            <input type="number" placeholder="Amount" name="amountA" min=1 required><br>
+                            <input type="text" placeholder="Image" name="imgA" required><br>
+                            <button type="submit">Dodaj</button>
+                        </form>
+                    </div>
+                </div>
 ADD;
             }
         ?>
