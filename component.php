@@ -35,7 +35,7 @@
 
                     <div class=\"product-cart\">
                         <p class=\"product-name\">$productname</p>
-                        <p class=\"product-price\">$$productprice</p>
+                        <p class=\"product-price\">$productprice zł</p>
                         
                         <button type=\"submit\" name=\"remove\">Usuń</button>
                     </div>
